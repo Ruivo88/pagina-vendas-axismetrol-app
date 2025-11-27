@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { MessageCircle, BarChart3, Shield, Check, ArrowRight, Phone, Lock, Sparkles, Edit3, Play, RotateCcw, TrendingUp, PieChart, Wallet, Target, Bell, Calendar, User, Briefcase, Users, Home as HomeIcon, Star, CheckCircle2, Zap, Award, Clock } from 'lucide-react'
 import Image from 'next/image'
-import Script from 'next/script'
 
 export default function Home() {
   const checkoutUrl = "https://pay.cakto.com.br/5tm3ppj_653075"
@@ -48,7 +47,7 @@ export default function Home() {
             className="md:hidden bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
           >
             <a href={checkoutUrl} target="_blank" rel="noopener noreferrer">
-              Comprar
+              Acessar
             </a>
           </Button>
         </div>
@@ -94,7 +93,7 @@ export default function Home() {
             >
               <a href={checkoutUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3">
                 <Sparkles className="w-5 h-5" />
-                Começar Agora - R$ 29,90
+                Começar Agora
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
@@ -441,59 +440,55 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Seção Vídeo e Texto - REDESENHADA COM WISTIA PLAYER */}
+      {/* Seção Vídeo e Texto - REDESENHADA COM WISTIA PLAYER - RESPONSIVA */}
       <section className="container mx-auto px-4 py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Coluna Esquerda - Vídeo Wistia */}
             <div className="order-2 md:order-1">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl hover:shadow-emerald-500/30 transition-all duration-500 hover:scale-[1.02]">
-                {/* Wistia Player Container */}
-                <div className="text-center p-8">
-                  <Script src="https://fast.wistia.com/player.js" strategy="lazyOnload" />
-                  <Script src="https://fast.wistia.com/embed/k8b4susn92.js" strategy="lazyOnload" type="module" />
-                  
-                  <style jsx>{`
-                    wistia-player[media-id='k8b4susn92']:not(:defined) { 
-                      background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/k8b4susn92/swatch'); 
-                      display: block; 
-                      filter: blur(5px); 
-                      padding-top: 51.88%; 
-                    }
-                  `}</style>
-                  
-                  <wistia-player media-id="k8b4susn92" aspect="1.927710843373494"></wistia-player>
+              <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl hover:shadow-emerald-500/30 transition-all duration-500 hover:scale-[1.02]">
+                {/* Wistia Player Container - RESPONSIVO */}
+                <div className="w-full p-4 sm:p-6 md:p-8 bg-white">
+                  <div className="relative w-full" style={{ paddingTop: '51.88%' }}>
+                    <iframe
+                      src="https://fast.wistia.net/embed/iframe/k8b4susn92"
+                      title="Wistia video player"
+                      allow="autoplay; fullscreen"
+                      allowFullScreen
+                      className="absolute top-0 left-0 w-full h-full rounded-lg"
+                    />
+                  </div>
                 </div>
                 
-                <div className="absolute -inset-1 bg-gradient-to-r from-emerald-600 to-green-600 rounded-3xl blur-xl opacity-20 -z-10"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-emerald-600 to-green-600 rounded-2xl md:rounded-3xl blur-xl opacity-20 -z-10"></div>
               </div>
             </div>
 
             {/* Coluna Direita - Texto */}
-            <div className="order-1 md:order-2 space-y-6">
-              <div className="inline-block bg-emerald-100 text-emerald-700 text-sm font-bold px-4 py-2 rounded-full mb-4">
+            <div className="order-1 md:order-2 space-y-4 md:space-y-6">
+              <div className="inline-block bg-emerald-100 text-emerald-700 text-xs sm:text-sm font-bold px-3 py-1.5 sm:px-4 sm:py-2 rounded-full mb-2 md:mb-4">
                 VEJA EM AÇÃO
               </div>
               
-              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
                 Suas soluções completas no{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-green-600">
                   WhatsApp
                 </span>
               </h2>
               
-              <p className="text-xl text-gray-700 leading-relaxed">
+              <p className="text-lg sm:text-xl text-gray-700 leading-relaxed">
                 Com o <strong className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-green-600">Axis Finance</strong>, você gerencia suas finanças direto pelo WhatsApp de forma simples e intuitiva. Sem complicações, sem aplicativos extras.
               </p>
 
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                 Registre despesas, acompanhe receitas, visualize relatórios e muito mais - tudo através de mensagens naturais, como se estivesse conversando com um amigo.
               </p>
 
               <Button 
                 asChild
                 size="lg" 
-                className="w-full sm:w-auto bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white px-8 py-6 text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105"
+                className="w-full sm:w-auto bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 mt-2"
               >
                 <a href={checkoutUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                   Experimente Agora
@@ -733,14 +728,14 @@ export default function Home() {
                   <div className="flex items-center gap-3 mb-4">
                     <div className="relative w-12 h-12 rounded-full overflow-hidden ring-2 ring-emerald-600">
                       <Image
-                        src="https://k6hrqrxuu8obbfwn.public.blob.vercel-storage.com/temp/01294f2a-cfc8-4011-9fca-524f4f6e614c.png"
-                        alt="Thaís Silva"
+                        src="https://k6hrqrxuu8obbfwn.public.blob.vercel-storage.com/temp/a24a7275-d7ca-426f-b3c7-b10b4be024e4.png"
+                        alt="Carlos Azevedo"
                         fill
                         className="object-cover"
                       />
                     </div>
                     <div>
-                      <p className="font-bold text-gray-900">Thaís Silva</p>
+                      <p className="font-bold text-gray-900">Carlos Azevedo</p>
                       <div className="flex items-center gap-1">
                         {[...Array(5)].map((_, i) => (
                           <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />
@@ -797,49 +792,49 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SEÇÃO DE PREÇOS - REDESENHADA */}
-      <section id="precos" className="container mx-auto px-4 py-20 md:py-28 bg-gradient-to-b from-gray-50 via-white to-gray-50">
-        <div className="max-w-5xl mx-auto">
+      {/* SEÇÃO DE PREÇOS - REDESENHADA E OTIMIZADA PARA MOBILE */}
+      <section id="precos" className="container mx-auto px-4 py-16 md:py-20 lg:py-28 bg-gradient-to-b from-gray-50 via-white to-gray-50">
+        <div className="max-w-4xl mx-auto">
           {/* Título e Subtítulo */}
-          <div className="text-center mb-16">
-            <div className="inline-block bg-emerald-100 text-emerald-700 text-sm font-bold px-4 py-2 rounded-full mb-6">
+          <div className="text-center mb-12 md:mb-16">
+            <div className="inline-block bg-emerald-100 text-emerald-700 text-xs sm:text-sm font-bold px-3 py-1.5 sm:px-4 sm:py-2 rounded-full mb-4 sm:mb-6">
               OFERTA ESPECIAL
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 sm:mb-6 px-2">
               Pronto para transformar suas{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-green-600">
                 finanças?
               </span>
             </h2>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto px-4">
               Junte-se a milhares de pessoas que já estão no controle total do seu dinheiro.
             </p>
           </div>
 
-          {/* Card de Preço Principal - REDESENHADO */}
-          <Card className="border-none shadow-2xl overflow-hidden mb-12 hover:shadow-emerald-500/30 transition-all duration-500 hover:scale-[1.02] bg-white relative">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-emerald-100 to-green-100 rounded-full blur-3xl opacity-50"></div>
+          {/* Card de Preço Principal - OTIMIZADO PARA MOBILE */}
+          <Card className="border-none shadow-2xl overflow-hidden mb-8 md:mb-12 hover:shadow-emerald-500/30 transition-all duration-500 hover:scale-[1.02] bg-white relative">
+            <div className="absolute top-0 right-0 w-48 h-48 md:w-64 md:h-64 bg-gradient-to-br from-emerald-100 to-green-100 rounded-full blur-3xl opacity-50"></div>
             
-            <CardContent className="p-8 md:p-12 relative">
-              {/* Preço com Destaque */}
-              <div className="text-center mb-10">
-                <div className="flex items-center justify-center gap-4 mb-6">
-                  <span className="text-2xl md:text-3xl text-gray-500 line-through">R$ 149,90</span>
-                  <span className="bg-gradient-to-r from-red-500 to-pink-500 text-white px-5 py-2 rounded-full text-base font-bold animate-pulse shadow-lg">
+            <CardContent className="p-6 sm:p-8 md:p-10 lg:p-12 relative">
+              {/* Preço com Destaque - RESPONSIVO */}
+              <div className="text-center mb-8 md:mb-10">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                  <span className="text-xl sm:text-2xl md:text-3xl text-gray-500 line-through">R$ 149,90</span>
+                  <span className="bg-gradient-to-r from-red-500 to-pink-500 text-white px-4 py-1.5 sm:px-5 sm:py-2 rounded-full text-sm sm:text-base font-bold animate-pulse shadow-lg">
                     80% OFF
                   </span>
                 </div>
-                <div className="flex items-baseline justify-center gap-3 mb-4">
-                  <span className="text-gray-700 text-2xl md:text-3xl font-semibold">por apenas</span>
-                  <span className="text-6xl md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                  <span className="text-gray-700 text-xl sm:text-2xl md:text-3xl font-semibold">por apenas</span>
+                  <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600">
                     R$ 29,90
                   </span>
                 </div>
-                <p className="text-gray-600 text-xl font-medium">pagamento único • acesso vitalício</p>
+                <p className="text-gray-600 text-base sm:text-lg md:text-xl font-medium">pagamento único</p>
               </div>
 
-              {/* Lista de Benefícios - REDESENHADA */}
-              <div className="space-y-4 mb-10">
+              {/* Lista de Benefícios - OTIMIZADA PARA MOBILE */}
+              <div className="space-y-3 sm:space-y-4 mb-8 md:mb-10">
                 {[
                   { text: 'Perfil Pessoal e Empresarial', highlight: true },
                   { text: 'Perfil Casal - Compartilhe com seu cônjuge', highlight: true },
@@ -848,75 +843,75 @@ export default function Home() {
                   { text: 'Suporte prioritário vitalício', highlight: false },
                   { text: 'Todas atualizações futuras incluídas', highlight: false }
                 ].map((benefit, index) => (
-                  <div key={index} className="flex items-start gap-4 group p-4 rounded-xl hover:bg-emerald-50 transition-all duration-300">
-                    <CheckCircle2 className="w-7 h-7 text-emerald-600 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
-                    <span className={`text-lg ${benefit.highlight ? 'font-bold text-gray-900' : 'text-gray-700'}`}>
+                  <div key={index} className="flex items-start gap-3 sm:gap-4 group p-3 sm:p-4 rounded-xl hover:bg-emerald-50 transition-all duration-300">
+                    <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-emerald-600 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
+                    <span className={`text-sm sm:text-base md:text-lg ${benefit.highlight ? 'font-bold text-gray-900' : 'text-gray-700'}`}>
                       {benefit.text}
                     </span>
                   </div>
                 ))}
               </div>
 
-              {/* Botão de Compra - REDESENHADO */}
+              {/* Botão de Compra - RESPONSIVO */}
               <Button 
                 asChild
                 size="lg" 
-                className="w-full bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 hover:from-emerald-700 hover:via-green-700 hover:to-teal-700 text-white text-xl md:text-2xl py-8 md:py-10 rounded-2xl shadow-2xl hover:shadow-emerald-500/50 transition-all duration-500 transform hover:scale-105 active:scale-95 font-bold"
+                className="w-full bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 hover:from-emerald-700 hover:via-green-700 hover:to-teal-700 text-white text-lg sm:text-xl md:text-2xl py-6 sm:py-8 md:py-10 rounded-2xl shadow-2xl hover:shadow-emerald-500/50 transition-all duration-500 transform hover:scale-105 active:scale-95 font-bold"
               >
-                <a href={checkoutUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3">
-                  <Sparkles className="w-6 h-6" />
-                  Garantir Minha Vaga Agora
-                  <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1" />
+                <a href={checkoutUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 sm:gap-3">
+                  <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
+                  <span className="text-center">Garantir Minha Vaga Agora</span>
+                  <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>
 
-              {/* Badges de Confiança */}
-              <div className="flex flex-wrap justify-center items-center gap-6 mt-8 text-gray-600">
+              {/* Badges de Confiança - RESPONSIVO */}
+              <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 mt-6 sm:mt-8 text-gray-600">
                 <div className="flex items-center gap-2">
-                  <Shield className="w-5 h-5 text-emerald-600" />
-                  <span className="text-sm font-semibold">Pagamento Seguro</span>
+                  <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600" />
+                  <span className="text-xs sm:text-sm font-semibold">Pagamento Seguro</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Clock className="w-5 h-5 text-emerald-600" />
-                  <span className="text-sm font-semibold">Acesso Imediato</span>
+                  <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600" />
+                  <span className="text-xs sm:text-sm font-semibold">Acesso Imediato</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Award className="w-5 h-5 text-emerald-600" />
-                  <span className="text-sm font-semibold">Garantia 7 Dias</span>
+                  <Award className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600" />
+                  <span className="text-xs sm:text-sm font-semibold">Garantia 7 Dias</span>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          {/* Seção de Garantia - REDESENHADA */}
-          <div className="bg-gradient-to-br from-emerald-600 via-green-600 to-teal-600 rounded-3xl p-10 md:p-12 shadow-2xl hover:shadow-emerald-500/50 transition-all duration-500 hover:scale-[1.02] relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+          {/* Seção de Garantia - OTIMIZADA PARA MOBILE */}
+          <div className="bg-gradient-to-br from-emerald-600 via-green-600 to-teal-600 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 shadow-2xl hover:shadow-emerald-500/50 transition-all duration-500 hover:scale-[1.02] relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-48 h-48 md:w-64 md:h-64 bg-white/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-48 h-48 md:w-64 md:h-64 bg-white/10 rounded-full blur-3xl"></div>
             
-            <div className="relative flex flex-col md:flex-row items-center gap-8">
+            <div className="relative flex flex-col md:flex-row items-center gap-6 sm:gap-8">
               <div className="flex-shrink-0">
-                <div className="w-24 h-24 bg-white rounded-2xl flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300">
-                  <Shield className="w-12 h-12 text-emerald-600" />
+                <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-white rounded-xl sm:rounded-2xl flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300">
+                  <Shield className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-emerald-600" />
                 </div>
               </div>
 
               <div className="flex-1 text-center md:text-left">
-                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
                   Garantia Incondicional de 7 Dias
                 </h3>
-                <p className="text-xl text-emerald-50 mb-4 leading-relaxed">
+                <p className="text-base sm:text-lg md:text-xl text-emerald-50 mb-3 sm:mb-4 leading-relaxed">
                   Teste o Axis Finance por 7 dias completos sem nenhum risco.
                 </p>
-                <p className="text-lg text-emerald-50 leading-relaxed">
+                <p className="text-sm sm:text-base md:text-lg text-emerald-50 leading-relaxed">
                   Se por qualquer motivo você não ficar 100% satisfeito com a plataforma, basta enviar um email dentro dos primeiros 7 dias e restituiremos todo o seu investimento, sem perguntas, sem burocracia.
                 </p>
               </div>
             </div>
 
-            <div className="mt-8 text-center">
-              <div className="inline-flex items-center gap-3 bg-white rounded-full px-6 py-3 shadow-xl hover:scale-105 transition-transform duration-300">
-                <Lock className="w-6 h-6 text-emerald-600" />
-                <span className="text-lg font-bold text-gray-900">100% Seguro e Garantido</span>
+            <div className="mt-6 sm:mt-8 text-center">
+              <div className="inline-flex items-center gap-2 sm:gap-3 bg-white rounded-full px-4 py-2 sm:px-6 sm:py-3 shadow-xl hover:scale-105 transition-transform duration-300">
+                <Lock className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600" />
+                <span className="text-base sm:text-lg font-bold text-gray-900">100% Seguro e Garantido</span>
               </div>
             </div>
           </div>
